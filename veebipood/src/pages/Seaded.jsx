@@ -6,10 +6,10 @@ function Seaded() {
   return (
     <div>
       {/* <div>Hetkel aktiivne keel on: {keel}</div> */}
-      <button onClick={() => setKeel("et")}>Eesti</button>
-      <button onClick={() => setKeel("en")}>Inglise</button>
-      <button onClick={() => setKeel("es")}>Hispaania</button>
-      <button onClick={() => setKeel("ru")}>Vene</button>
+      <button className={keel === "et" ? "keel-aktiivne" : undefined} onClick={() => setKeel("et")}>Eesti</button>
+      <button className={keel === "en" ? "keel-aktiivne" : undefined} onClick={() => setKeel("en")}>Inglise</button>
+      <button className={keel === "es" ? "keel-aktiivne" : undefined} onClick={() => setKeel("es")}>Hispaania</button>
+      <button className={keel === "ru" ? "keel-aktiivne" : undefined} onClick={() => setKeel("ru")}>Vene</button>
 
       <br /><br />
 
