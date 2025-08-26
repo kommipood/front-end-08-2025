@@ -39,3 +39,12 @@
 .kuldne {
   color: goldenrod;
 }
+
+.vaade-aktiivne {
+  background-color: black;
+  color: white;
+}
+
+.vaade {
+  background-color: wheat;
+}
