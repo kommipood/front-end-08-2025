@@ -23,12 +23,12 @@ function Menu() {
         <button>Seaded</button>
       </Link>
 
-      <Link to="/esindused" >
-        <button>Esindused</button>
-      </Link>
-
       <Link to="/kalkulaator">
         <button>Kalkulaator</button>
+      </Link>
+
+      <Link to="/arrays">
+        <button>Arrays</button>
       </Link>
     </div>
   )

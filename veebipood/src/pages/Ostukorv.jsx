@@ -1,13 +1,16 @@
+import { useState } from "react"
 
 
 function Ostukorv() {
+  const [tooted, setTooted] = useState(["Coca-cola", "Fanta", "Sprite"]);
+//Kuva tooted
+
   return (
     <div>
-      <button>Tühjenda</button> <br /> <br />
+      <div>Hetkel on ostukorvis: {tooted.length} toodet</div>
+      <button onClick={() => setTooted([])}>Tühjenda</button> <br /> <br />
 
-      <div>Coca-Cola</div>
-      <div>Fanta</div>
-      <div>Sprite</div>
+      {tooted.map(toode => <div key={toode}>{toode}</div>)}
 
       <br />
 

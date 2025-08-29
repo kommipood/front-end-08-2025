@@ -5,10 +5,16 @@ import Ostukorv from './pages/Ostukorv'
 import LisaToode from './pages/LisaToode'
 import Kinkekaart from './pages/Kinkekaart'
 import Seaded from './pages/Seaded'
-import Esindused from './pages/Esindused'
+import Esindused from './pages/arrays/Esindused'
 import Kalkulaator from './pages/Kalkulaator'
 import NotFound from './pages/NotFound'
 import Menu from './components/Menu'
+import ArraysHome from './pages/arrays/ArraysHome'
+import Autod from './pages/arrays/Autod'
+import Hinnad from './pages/arrays/Hinnad'
+import Kasutajad from './pages/arrays/Kasutajad'
+import Tootajad from './pages/arrays/Tootajad'
+import Tooted from './pages/arrays/Tooted'
 
 function App() {
   
@@ -23,8 +29,17 @@ function App() {
         <Route path="/lisa-toode" element={<LisaToode/>} />
         <Route path="/osta-kinkekaart" element={<Kinkekaart/>} />
         <Route path="/seaded" element={<Seaded/>} />
-        <Route path="/esindused" element={<Esindused/>} />
         <Route path="/kalkulaator" element={<Kalkulaator/>} />
+
+        <Route path="/arrays" element={ <ArraysHome/> } />
+        <Route path="/autod" element={<Autod/>} />
+        <Route path="/esindused" element={<Esindused/>} />
+        <Route path="/hinnad" element={<Hinnad/>} />
+        <Route path="/kasutajad" element={<Kasutajad/>} />
+        <Route path="/tootajad" element={<Tootajad/>} />
+        <Route path="/tooted" element={<Tooted/>} />
+
+
         <Route path="/*" element={<NotFound/>} />
       </Routes>
     </>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Courses() {
   const [kursus, uuendaKursus] = useState("Valimata");
   return (
-    <div>
+    <div className="courses-page">
         <Link to="/">
             <button>Tagasi</button>
         </Link>

@@ -45,6 +45,15 @@
   color: white;
 }
 
+.vaade-aktiivne button {
+  background-color: black;
+  color: white;
+}
+
 .vaade {
+  background-color: wheat;
+}
+
+.vaade button {
   background-color: wheat;
 }

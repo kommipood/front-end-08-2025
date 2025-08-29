@@ -164,7 +164,7 @@
   opacity: 80%;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -174,15 +174,16 @@
 }
 
 .mitteaktiivne-kursus {
-  background-color: white;
-  border: 2px;
-  border-color: darkcyan;
+  background-color: rgb(250, 250, 234);
   color: darkcyan;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  margin: 30px 2px;
   cursor: pointer;
+}
+
+.courses-page {
+  text-align: center;
 }

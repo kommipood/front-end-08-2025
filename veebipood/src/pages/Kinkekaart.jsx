@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 function Kinkekaart() {
   const [summa, setSumma] = useState(20);
@@ -8,21 +9,21 @@ function Kinkekaart() {
 
   function lisa() {
     if (emailRef.current.value === "") {
-      alert("Midagi peab sisestama!");
+      toast.error("Midagi peab sisestama!");
       return; // katkesta funktsioon, kui siia if-i sisse jõuab
     }
 
     if (emailRef.current.value.includes("@") === false) {
-      alert("Ei saa emaili ilma @ märgita lisada!");
+      toast.error("Ei saa emaili ilma @ märgita lisada!");
       return;
     }
 
     if (emailRef.current.value.length < 5) {
-      alert("Email liiga lühike!");
+      toast.error("Email liiga lühike!");
       return;
     }
 
-    alert("Email lisatud!");
+    toast.success("Email lisatud!");
   }
 
 
@@ -44,7 +45,11 @@ function Kinkekaart() {
       <label>E-mail</label><br></br>
       <input ref={emailRef} type="text" /><br></br>
       <button onClick={lisa}>Lisa</button>
-
+      <ToastContainer 
+        position="top-center"
+        autoClose={4000}
+        theme="light"
+      />
     </div>
   )
 }
