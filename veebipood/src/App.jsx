@@ -15,6 +15,13 @@ import Hinnad from './pages/arrays/Hinnad'
 import Kasutajad from './pages/arrays/Kasutajad'
 import Tootajad from './pages/arrays/Tootajad'
 import Tooted from './pages/arrays/Tooted'
+import HaldaHome from './pages/halda/HaldaHome'
+import HaldaAutod from './pages/halda/HaldaAutod'
+import HaldaEsindused from './pages/halda/HaldaEsindused'
+import HaldaHinnad from './pages/halda/HaldaHinnad'
+import HaldaKasutajad from './pages/halda/HaldaKasutajad'
+import HaldaTootajad from './pages/halda/HaldaTootajad'
+import HaldaTooted from './pages/halda/HaldaTooted'
 
 function App() {
   
@@ -38,6 +45,14 @@ function App() {
         <Route path="/kasutajad" element={<Kasutajad/>} />
         <Route path="/tootajad" element={<Tootajad/>} />
         <Route path="/tooted" element={<Tooted/>} />
+
+        <Route path="/halda-home" element={ <HaldaHome/> } />
+        <Route path="/halda-autod" element={<HaldaAutod/>} />
+        <Route path="/halda-esindused" element={<HaldaEsindused/>} />
+        <Route path="/halda-hinnad" element={<HaldaHinnad/>} />
+        <Route path="/halda-kasutajad" element={<HaldaKasutajad/>} />
+        <Route path="/halda-tootajad" element={<HaldaTootajad/>} />
+        <Route path="/halda-tooted" element={<HaldaTooted/>} />
 
 
         <Route path="/*" element={<NotFound/>} />

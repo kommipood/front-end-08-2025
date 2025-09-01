@@ -30,6 +30,10 @@ function Menu() {
       <Link to="/arrays">
         <button>Arrays</button>
       </Link>
+
+      <Link to="/halda-home">
+        <button>Halda</button>
+      </Link>
     </div>
   )
 }

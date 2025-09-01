@@ -12,7 +12,7 @@ function LisaArvuti() {
 
   return (
     <div>
-      <div>{message}</div>
+      <div>Sõnum: {message}</div>
       <label>Mark</label> <br></br>
       <input type="text"></input> <br></br>
       <label>Mudel</label> <br></br>
