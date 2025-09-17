@@ -1,0 +1,16 @@
+[
+    {"hind": 41, "sonana": "nelikümmend üks"},
+    {"hind": 34, "sonana": "kolmkümmend neli"},
+    {"hind": 56, "sonana": "viiskümmend kuus"},
+    {"hind": 234, "sonana": "kakssada kolmkümmend neli"},
+    {"hind": 278, "sonana": "kakssada seitsekümmend kaheksa"},
+    {"hind": 24, "sonana": "kakskümmend neli"},
+    {"hind": 67, "sonana": "kuuskümmend seitse"},
+    {"hind": 89, "sonana": "kaheksakümmend üheksa"},
+    {"hind": 4, "sonana": "neli"},
+    {"hind": 3456, "sonana": "kolm tuhat nelisada viiskümmend kuus"},
+    {"hind": 1234, "sonana": "üks tuhat kaks sada kolmkümmend neli"},
+    {"hind": 8760, "sonana": "kaheksa tuhat seitse sada kuuskümmend"},
+    {"hind": 567, "sonana": "viissada kuuskümmend seitse"},
+    {"hind": 987, "sonana": "üheksasada kaheksakümmend seitse"}
+    ]

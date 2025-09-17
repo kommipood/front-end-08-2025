@@ -1,0 +1,14 @@
+[
+    {"nimi": "BMW", "hind": 55000, "aktiivne": true, "pilt": ""},
+    {"nimi": "Audi", "hind": 52000, "aktiivne": false, "pilt": ""},
+    {"nimi": "A Martin", "hind": 150000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Alfa Romeo", "hind": 48000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Mercedes", "hind": 60000, "aktiivne": true, "pilt": ""},
+    {"nimi": "Volvo", "hind": 47000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Saab", "hind": 35000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Lamborghini", "hind": 200000, "aktiivne": true, "pilt": ""},
+    {"nimi": "Ferrari", "hind": 220000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Toyota", "hind": 30000, "aktiivne": true, "pilt": ""},
+    {"nimi": "Hyundai", "hind": 27000, "aktiivne": false, "pilt": ""},
+    {"nimi": "Ford", "hind": 32000, "aktiivne": true, "pilt": ""}
+]

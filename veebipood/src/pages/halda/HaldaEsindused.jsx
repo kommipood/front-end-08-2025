@@ -1,32 +1,61 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import HaldaHome from './HaldaHome'
+import esindusedFailist from "../../data/esindused.json"
+import { useRef } from 'react';
 
 function HaldaEsindused() {
-  const [keskused, setKeskused] = useState(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]);
+  const [keskused, setKeskused] = useState(esindusedFailist);
+  const nimiRef = useRef();
+  const telRef = useRef();
+  const aadressRef = useRef();
+
+  function lisa() {
+    esindusedFailist.push({
+        nimi: nimiRef.current.value,
+        tel: telRef.current.value,
+        aadress: aadressRef.current.value
+    })
+    setKeskused(esindusedFailist.slice());
+  }
+
 
   function kustuta(index) {
-    keskused.splice(index,1);
-    setKeskused(keskused.slice());
+    esindusedFailist.splice(index,1);
+    setKeskused(esindusedFailist.slice());
   }
 
   return (
     <div>
         <HaldaHome></HaldaHome>
         <div>Esindusi kokku: {keskused.length} tk</div>
+
+        <label>Nimi</label><br></br>
+        <input ref={nimiRef} type="text"></input><br></br>
+        <label>Telefon</label><br></br>
+        <input ref={telRef} type="text"></input><br></br>
+        <label>Aadress</label><br></br>
+        <input ref={aadressRef} type="text"></input><br></br>
+        <button onClick={lisa}>Sisesta</button>
+
         <table>
-            <thead></thead>
+            <thead>
                 <tr>
                     <th>Index</th>
                     <th>Järjekorranumber</th>
-                    <th>Hind</th>
+                    <th>Keskuse nimi</th>
+                    <th>Keskuse telefon</th>
+                    <th>Keskuse aadress</th>
                     <th>Kustuta</th>
                 </tr>
+            </thead>
             <tbody>
-                {keskused.map((hind, index) =>
+                {keskused.map((keskus, index) =>
                     <tr key={index}>
                         <td>{index}</td>
                         <td>{index + 1}</td>
-                        <td>{hind}</td>
+                        <td>{keskus.nimi}</td>
+                        <td>{keskus.tel}</td>
+                        <td>{keskus.aadress}</td>
                         <td><button onClick={() => kustuta(index)}>x</button></td>
                     </tr>
                 )}

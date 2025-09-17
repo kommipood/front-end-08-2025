@@ -1,21 +1,34 @@
 import { useState } from "react";
 import ArraysHome from "./ArraysHome";
+import esindusedFailist from "../../data/esindused.json"
 
 function Esindused() {
   const [linn, setLinn] = useState("tallinn");
-  const [keskused, setKeskused] = useState(["Ülemiste", "Rocca al Mare", "Magistrali", "Vesse", "Kristiine", "Järveotsa"]);
+  const [keskused, setKeskused] = useState(esindusedFailist);
 
   function sorteeriAZ() {
-    keskused.sort((a, b) => a.localeCompare(b));
+    keskused.sort((a, b) => a.nimi.localeCompare(b.nimi));
     setKeskused(keskused.slice());
 
   }
 
   function sorteeriZA() {
-    keskused.sort((a, b) => b.localeCompare(a));
+    keskused.sort((a, b) => b.nimi.localeCompare(a.nimi));
     setKeskused(keskused.slice());
 
   }
+
+  function arvutaTahedKokku() {
+    let summa = 0;
+    keskused.forEach(keskus => summa = summa + keskus.nimi.length);
+    return summa;
+  }
+
+  function otsi(otsinguFraas) {
+    const vastus = esindusedFailist.filter(esindus => esindus.nimi.includes(otsinguFraas));
+    setKeskused(vastus);
+  }
+
 
   return (
     <div>
@@ -29,6 +42,8 @@ function Esindused() {
       {linn === "tallinn" &&
       <>
         <br></br>
+        <input onChange={(e) => otsi(e.target.value)} type="text"></input>
+        <br></br>
         <div>Esindusi kokku: {keskused.length} tk</div>
         <button onClick={sorteeriAZ}>Sorteeri A-Z</button>
         <button onClick={sorteeriZA}>Sorteeri A-Z</button>
@@ -40,7 +55,7 @@ function Esindused() {
       <div>Kristiine</div>
       <div>Järveotsa</div> */}
       {/* teeb sama, mis ülemine kommentaar */}
-      {keskused.map(keskus => <div key={keskus}>{keskus}</div>)} 
+      {keskused.map(keskus => <div key={keskus}>{keskus.nimi}</div>)} 
       </>}
       
 
@@ -51,7 +66,7 @@ function Esindused() {
 
       {linn === "pärnu" && <div>Port Artur 2</div>}
 
-
+        <div>Keskuste tähed kokku: {arvutaTahedKokku()} tk</div>
     </div>
   )
 }

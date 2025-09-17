@@ -1,29 +1,40 @@
 import { useState } from "react"
+import ostukorvJSON from "../data/ostukorv.json"
 
 
 function Ostukorv() {
-  const [tooted, setTooted] = useState(["Coca-cola", "Fanta", "Sprite"]);
+  const [tooted, setTooted] = useState(ostukorvJSON);
 //Kuva tooted
 
+  function tyhjenda() {
+    ostukorvJSON.splice(0);
+    setTooted(ostukorvJSON.slice());
+  }
+  
   function kustuta(index) {
-    tooted.splice(index, 1);
-    setTooted(tooted.slice());
+    ostukorvJSON.splice(index, 1);
+    setTooted(ostukorvJSON.slice());
+  }
+  function arvutaKokku() {
+    let summa = 0;
+    tooted.forEach(toode => summa = summa + toode.hind);
+    return summa;
   }
 
   return (
     <div>
       <div>Hetkel on ostukorvis: {tooted.length} toodet</div>
-      <button onClick={() => setTooted([])}>Tühjenda</button> <br /> <br />
+      <button onClick={tyhjenda}>Tühjenda</button> <br /> <br />
 
       {tooted.map((toode, index) => 
         <div key={index}>
-          {toode}
+          {toode.nimi}
           <button onClick={() => kustuta(index)}>x</button>
         </div>)}
 
       <br />
 
-      <div>Ostukorvi kogusumma on: xx €</div>
+      <div>Ostukorvi kogusumma on: {arvutaKokku()} €</div>
 
     </div>
   )

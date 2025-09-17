@@ -1,0 +1,14 @@
+[
+{"nimi": "Coca-Cola", "hind": 2.8, "aktiivne": true, "pilt": ""},
+{"nimi": "Sprite", "hind": 2.6, "aktiivne": false, "pilt": ""},
+{"nimi": "Pepsi", "hind": 2.5, "aktiivne": true, "pilt": ""},
+{"nimi": "Vichy", "hind": 1.9, "aktiivne": true, "pilt": ""},
+{"nimi": "Red Bull", "hind": 3.2, "aktiivne": false, "pilt": ""},
+{"nimi": "Dr Pepper", "hind": 2.7, "aktiivne": true, "pilt": ""},
+{"nimi": "Lipton Ice Tea", "hind": 2.4, "aktiivne": true, "pilt": ""},
+{"nimi": "Mountain Dew", "hind": 2.6, "aktiivne": true, "pilt": ""},
+{"nimi": "Vitamin Well", "hind": 3.0, "aktiivne": false, "pilt": ""},
+{"nimi": "A. Le Coq Vichy+", "hind": 2.1, "aktiivne": false, "pilt": ""},
+{"nimi": "Hell Energy", "hind": 2.9, "aktiivne": true, "pilt": ""},
+{"nimi": "Rauch Happy Day", "hind": 2.8, "aktiivne": true, "pilt": ""}
+]

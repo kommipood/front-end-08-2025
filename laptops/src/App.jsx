@@ -22,6 +22,8 @@ function App() {
         <Route path="" exact element={<Avaleht/>} />
         <Route path="all" exact element={<VaataArvuteid/>} />
         <Route path="add" exact element={<LisaArvuti/>} />
+
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
       
     </>
