@@ -9,3 +9,31 @@
   width: 100px;
   height: 100px;
 }
+
+.dark-mode {
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.icon:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.icon:active {
+  padding: 1px;
+}
+
+.map {
+  height: 300px;
+  margin: 5%;
+  border-radius: 20px;
+  filter: brightness(80%) grayscale(30%);
+}

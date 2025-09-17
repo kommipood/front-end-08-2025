@@ -1,6 +1,6 @@
 import { useState } from "react"
 import productsFromFile from "../../data/products.json"
-import cartFromFile from "../../data/cart.json"
+// import cartFromFile from "../../data/cart.json"
 
 
 function HomePage() {
@@ -37,8 +37,18 @@ function HomePage() {
   }
 
   function addToCart(product) {
-    cartFromFile.push(product);
+    // cartFromFile.push(product);
+    const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
+    cartLS.push(product);
+    localStorage.setItem("cart", JSON.stringify(cartLS));
   }
+
+  //1. võtma localStorgae-st (localStorage.getItem())
+  //1b. kui localStorgae-s on tühjus, sis võta tühi array ( || [])
+  //2. võtma localStorgae-st võetult jutumärgid maha (JSON.parse())
+  //3. lisama ühe juurde ( .push())
+  //4. lisama jutumärgid tagasi ( JSON.stringify())
+  //5. lisama localStorgae-sse tagasi (localStorage.setItem())
 
   return (
     <div>

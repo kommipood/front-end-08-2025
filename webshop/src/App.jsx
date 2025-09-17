@@ -11,26 +11,46 @@ import HomePage from './pages/global/HomePage'
 import NotFound from './pages/global/NotFound'
 import { Routes, Route } from 'react-router-dom'
 import Menu from './components/Menu'
+import { useState } from 'react'
+import Shops from './pages/global/Shops'
+import {ContactUs} from './pages/global/ContactUs'
 
 function App() {
+  const [dark, setDark] = useState(localStorage.getItem("isDarkTheme") === "true");
+
+  function setDarkMode() {
+    setDark(true);
+    localStorage.setItem("isDarkTheme", "true");
+  }
+
+  function setLightMode() {
+    setDark(false);
+    localStorage.setItem("isDarkTheme", "false");
+  }
   
 
   return (
-    <>
+    <div className={dark === true ? "dark-mode": undefined}>
       <Menu></Menu>
+      <button onClick={setDarkMode}>Dark mode</button>
+      <button onClick={setLightMode}>Light mode</button>
       <Routes>
         <Route path="/" element={ <HomePage/>}/>
         <Route path="/cart" element={ <Cart/>}/>
         <Route path="/login" element={ <LogIn/>}/>
         <Route path="/signup" element={ <Signup/>}/>
+        <Route path="/shops" element={ <Shops/>}/>
+        <Route path="/contact" element={ <ContactUs/>}/>
+
         <Route path="/admin" element={ <AdminHome/>}/>
         <Route path="/admin/add-product" element={ <AddProduct/>}/>
         <Route path="/admin/manage-products" element={ <ManageProducts/>}/>
         <Route path="/admin/manage-categories" element={ <ManageCategories/>}/>
+
         <Route path="/*" element={ <NotFound/>}/>
       </Routes>
         
-    </>
+    </div>
   )
 }
 
