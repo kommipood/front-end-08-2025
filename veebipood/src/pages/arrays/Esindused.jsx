@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ArraysHome from "./ArraysHome";
 import esindusedFailist from "../../data/esindused.json"
+import {Link} from "react-router-dom"
 
 function Esindused() {
   const [linn, setLinn] = useState("tallinn");
@@ -55,7 +56,14 @@ function Esindused() {
       <div>Kristiine</div>
       <div>Järveotsa</div> */}
       {/* teeb sama, mis ülemine kommentaar */}
-      {keskused.map(keskus => <div key={keskus}>{keskus.nimi}</div>)} 
+      {keskused.map(keskus =>
+        <div key={keskus.nimi}>
+          {keskus.nimi}
+          <Link to={"/esindus/" + keskus.nimi}>
+            <button>Vt detailsemalt</button>
+          </Link>
+        </div>
+      )} 
       </>}
       
 

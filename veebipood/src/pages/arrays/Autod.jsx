@@ -3,6 +3,7 @@ import ArraysHome from "./ArraysHome"
 import autodFailist from "../../data/autod.json"
 import ostukorv from "../../data/ostukorv.json"
 import { useRef } from "react";
+import {Link} from "react-router-dom"
 
 function Autod() {
     const [autod, setAutod] = useState(autodFailist);
@@ -114,12 +115,16 @@ function Autod() {
         <button onClick={kaheSonalisedAutod}>Jäta alles kahe sõnalised autod</button>
         <br></br>
         {autod.map(auto =>
-          <div key={auto}>
+          <div key={auto.nimi}>
             <div>{auto.nimi}</div>
             <div>{auto.hind}</div>
             <div>{auto.pilt}</div>
             <div>{auto.aktiivne}</div>
             <button onClick={() => lisaOstukorvi(auto)}>Lisa ostukorvi</button>
+            <Link to={"/auto/" + auto.nimi}>
+              <button>Vt detailsemalt</button>
+            </Link>
+
           </div> )}
         
         <div>Hinnad kokku: {arvutaHinnadKokku()} €</div>

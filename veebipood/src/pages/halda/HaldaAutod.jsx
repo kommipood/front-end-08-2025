@@ -2,6 +2,7 @@ import  { useState } from 'react'
 import HaldaHome from './HaldaHome'
 import autodFailist from "../../data/autod.json"
 import { useRef } from 'react';
+import {Link} from "react-router-dom"
 
 function HaldaAutod() {
   const [autod, setAutod] = useState(autodFailist);
@@ -59,6 +60,7 @@ function HaldaAutod() {
                     <th>Auto pilt</th>
                     <th>Auto aktiivne</th>
                     <th>Kustuta</th>
+                    <th>Muuda</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,6 +73,11 @@ function HaldaAutod() {
                         <td>{auto.pilt}</td>
                         <td>{auto.aktiivne === true ? "Aktiivne" : "Mitteaktiivne"}</td>
                         <td><button onClick={() => kustuta(index)}>x</button></td>
+                        <td>
+                          <Link to={"/muuda-auto/" + index}>
+                            <button>Muuda</button>
+                          </Link>
+                        </td>
                     </tr>
                 )}
             </tbody>

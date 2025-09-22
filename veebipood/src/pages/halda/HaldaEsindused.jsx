@@ -2,6 +2,7 @@ import { useState } from 'react'
 import HaldaHome from './HaldaHome'
 import esindusedFailist from "../../data/esindused.json"
 import { useRef } from 'react';
+import {Link} from "react-router-dom"
 
 function HaldaEsindused() {
   const [keskused, setKeskused] = useState(esindusedFailist);
@@ -46,6 +47,7 @@ function HaldaEsindused() {
                     <th>Keskuse telefon</th>
                     <th>Keskuse aadress</th>
                     <th>Kustuta</th>
+                    <th>Muuda</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +59,11 @@ function HaldaEsindused() {
                         <td>{keskus.tel}</td>
                         <td>{keskus.aadress}</td>
                         <td><button onClick={() => kustuta(index)}>x</button></td>
+                        <td>
+                          <Link to={"/muuda-esindus/" + index}>
+                            <button>Muuda</button>
+                          </Link>
+                        </td>
                     </tr>
                 )}
             </tbody>

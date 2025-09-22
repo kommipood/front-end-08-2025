@@ -14,6 +14,9 @@ import Menu from './components/Menu'
 import { useState } from 'react'
 import Shops from './pages/global/Shops'
 import {ContactUs} from './pages/global/ContactUs'
+import Supplier1 from './pages/admin/api/Supplier1'
+import Supplier2 from './pages/admin/api/Supplier2'
+import Supplier3 from './pages/admin/api/Supplier3'
 
 function App() {
   const [dark, setDark] = useState(localStorage.getItem("isDarkTheme") === "true");
@@ -46,6 +49,10 @@ function App() {
         <Route path="/admin/add-product" element={ <AddProduct/>}/>
         <Route path="/admin/manage-products" element={ <ManageProducts/>}/>
         <Route path="/admin/manage-categories" element={ <ManageCategories/>}/>
+
+        <Route path="/admin/supplier1" element={ <Supplier1/>}/>
+        <Route path="/admin/supplier2" element={ <Supplier2/>}/>
+        <Route path="/admin/supplier3" element={ <Supplier3/>}/>
 
         <Route path="/*" element={ <NotFound/>}/>
       </Routes>

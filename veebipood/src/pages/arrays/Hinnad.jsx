@@ -2,6 +2,7 @@ import { useState } from "react"
 import ArraysHome from "./ArraysHome"
 import hinnadFailist from "../../data/hinnad.json"
 import { useRef } from "react";
+import {Link} from "react-router-dom"
 
 function Hinnad() {
     const [hinnad, setHinnad] = useState(hinnadFailist);
@@ -53,7 +54,14 @@ function Hinnad() {
         <button onClick={sorteeriKahanevalt}>Sorteeri kahanevalt</button>
         <button onClick={filtreeriVaiksemadKui1000}>Filtreeri väiksemad kui 1000</button>
         <button onClick={filtreeriSuuremadKui100}>Filtreeri suuremad kui 100</button>
-        {hinnad.map((hind, index) => <div key={index}>{hind.hind}</div>)}
+        {hinnad.map((hind, index) =>
+          <div key={index}>
+            {hind.hind}
+            <Link to={"/hind/" + index}>
+              <button>Vt lähemalt</button>
+            </Link>
+          </div>
+        )}
         {/* {hinnad.map(hind => <div key={key=hind}>{hind}</div>)} */}
         {/* index'ga kui sama väärtust kordub */}
         <div>Hinnad kokku: {arvutaHinnadKokku()} €</div>

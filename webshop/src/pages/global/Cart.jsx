@@ -1,6 +1,7 @@
 import { useState } from "react"
 // import cartFromFile from "../../data/cart.json"
 import { useTranslation } from "react-i18next";
+import ParcelMachines from "../../components/ParcelMachines";
 
 function Cart() {
     const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")));
@@ -43,6 +44,8 @@ function Cart() {
                 <button onClick={() => remove(index)}>x</button>
             </div>
         )}
+
+        <ParcelMachines/>
         <div>{t("cart.total")}: {addTogether().toFixed(2)}</div>
     </div>
   )
