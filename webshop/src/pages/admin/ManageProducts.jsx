@@ -1,12 +1,24 @@
 import { useState } from "react"
-import productsFromFile from "../../data/products.json"
+// import productsFromFile from "../../data/products.json"
+import { useEffect } from "react";
 
 function ManageProducts() {
-    const [products, setProducts] = useState(productsFromFile);
+    //const [products, setProducts] = useState(productsFromFile);
+  const productsUrl = "https://webshop-merili-default-rtdb.europe-west1.firebasedatabase.app/products.json";
+  const [products, setProducts] = useState([]);
+
+
+  useEffect(() => {
+    fetch(productsUrl)
+      .then(res => res.json())
+      .then(json => setProducts(json || []))
+    
+  }, []);
 
     function remove(index) {
-        productsFromFile.splice(index,1);
-        setProducts(productsFromFile.slice());
+        products.splice(index,1);
+        setProducts(products.slice());
+        fetch(productsUrl, {method: "PUT", body: JSON.stringify(products)});
     }
 
   return (

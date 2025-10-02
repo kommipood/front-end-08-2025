@@ -8,6 +8,7 @@
 .picture {
   width: 100px;
   height: 100px;
+  transition: 1s;
 }
 
 .dark-mode {
@@ -36,4 +37,63 @@
   margin: 5%;
   border-radius: 20px;
   filter: brightness(80%) grayscale(30%);
+}
+
+.product {
+   display: flex; /* elemendid vasakult paremale */
+   justify-content: space-between; /* vaba ruum keskel */
+   /* margin-left: 10%;
+   margin-right: 10%; */
+   margin: 0 10%; /* üles-alla on 0 ja vasakult-paremale on 10% */
+   border-bottom: 1px solid lightgray;
+   /* padding-top: 10px;
+   padding-bottom: 10px; */
+   padding: 10px 0; /* üles-alla on 10% ja vasakult-paremale on 0 */
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+}
+
+.title {
+  width: 400px;
+}
+
+.price {
+  width: 100px;
+}
+
+.remove {
+  width: 30px;
+  height: 30px;
+}
+
+.remove:hover {
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.remove:active {
+  padding: 1px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin: 2% 5%;
+}
+
+.home-product {
+  border: 0.5px solid lightgray;
+  padding: 20px;
+}
+
+.home-title {
+  height: 100px;
+}
+
+.home-product:hover img {
+  transform: scale(110%);
+  transition: 1s;
 }

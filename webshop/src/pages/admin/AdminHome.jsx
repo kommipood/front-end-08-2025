@@ -10,6 +10,9 @@ function AdminHome() {
         <Link to="/admin/manage-products">
             <button>Manage products</button>
         </Link>
+        <Link to="/admin/manage-categories">
+            <button>Manage categories</button>
+        </Link>
         <br></br>
         <Link to="/admin/supplier1">
             <button>Supplier1</button>

@@ -1,10 +1,35 @@
 import { useState } from "react"
-import productsFromFile from "../../data/products.json"
+// import productsFromFile from "../../data/products.json"
+import { useEffect } from "react";
 // import cartFromFile from "../../data/cart.json"
+import toast, {Toaster} from "react-hot-toast"
 
 
 function HomePage() {
-  const [products, setProducts] = useState(productsFromFile);
+  // const [products, setProducts] = useState(productsFromFile);
+  const productsUrl = "https://webshop-merili-default-rtdb.europe-west1.firebasedatabase.app/products.json";
+  const [products, setProducts] = useState([]); //HTMLis muutuv seis
+  const [dbProducts, setDbProducts] = useState([]); //originaalseis, täpselt nagu andmebaasis
+  const categoriesUrl = "https://webshop-merili-default-rtdb.europe-west1.firebasedatabase.app/categories.json";
+  const [categories, setCategories] = useState([]);
+
+
+  useEffect(() => {
+    fetch(productsUrl)
+      .then(res => res.json())
+      .then(json => {
+        setProducts(json || []);
+        setDbProducts(json || []);
+      })
+    
+  }, []);
+
+  useEffect(() => {
+    fetch(categoriesUrl)
+      .then(res => res.json())
+      .then(json => setCategories(json || []))
+    
+  }, []);
 
   function sortAZ() {
     products.sort((a, b) => a.title.localeCompare(b.title));
@@ -41,6 +66,12 @@ function HomePage() {
     const cartLS = JSON.parse(localStorage.getItem("cart")) || [];
     cartLS.push(product);
     localStorage.setItem("cart", JSON.stringify(cartLS));
+    toast.success('Edukalt ostukorvi lisatud');
+  }
+
+  function filterByCategory(clickedCategory) {
+    const result = dbProducts.filter(product => product.category === clickedCategory);
+    setProducts(result);
   }
 
   //1. võtma localStorgae-st (localStorage.getItem())
@@ -50,24 +81,72 @@ function HomePage() {
   //4. lisama jutumärgid tagasi ( JSON.stringify())
   //5. lisama localStorgae-sse tagasi (localStorage.setItem())
 
+  function sort(sortClicked) {
+    if (sortClicked === "sortaz") {
+      sortAZ();
+      return;
+    }
+
+    if (sortClicked === "sortza") {
+      sortZA();
+      return;
+    }
+
+    if (sortClicked === "sortpriceinc") {
+      sortPriceInc();
+      return;
+    }
+
+    if (sortClicked === "sortpricedec") {
+      sortPriceDec();
+      return;
+    }
+
+    if (sortClicked === "sortratinginc") {
+      sortRatingInc();
+      return;
+    }
+
+     if (sortClicked === "sortratingdec") {
+      sortRatingDec();
+      return;
+    }
+  }
+
   return (
     <div>
-      <button onClick={sortAZ}>Sort A to Z</button>
-      <button onClick={sortZA}>Sort Z to A</button>
-      <button onClick={sortPriceInc}>Sort price increasing</button>
-      <button onClick={sortPriceDec}>Sort price decreasing</button>
-      <button onClick={sortRatingInc}>Sort rating increasing</button>
-      <button  onClick={sortRatingDec}>Sort rating decreasing</button>
+      <select onChange={(e) => sort(e.target.value)}>
+        <option value="sortaz">Sort A to Z</option>
+        <option value="sortza">Sort Z to A</option>
+        <option value="sortpriceinc">Sort price increasing</option>
+        <option value="sortpricedec">Sort price decreasing</option>
+        <option value="sortratinginc">Sort rating increasing</option>
+        <option value="sortratingdec">Sort rating decreasing</option>
+      </select>
 
-      {products.map(product =>
-        <div key={product.id}>
-          <img className="picture" src={product.image} alt="" ></img>
-          <div>{product.title}</div>
-          <div>{product.price}</div>
-          <div>{product.rating.rate} / {product.rating.count}</div>
-          <button onClick={() => addToCart(product)}>Add to cart</button>
-        </div>
+      <br></br> <br></br>
+      <div>Kokku tooteid: {products.length}</div>
+
+      {categories.map(category => 
+        <button key={category.name} onClick={() => filterByCategory(category.name)}>
+          {category.name}
+        </button>)}
+
+      <br></br> <br></br>
+
+      <div className="products">
+        {products.map(product =>
+          <div className="home-product" key={product.id}>
+            <img className="picture" src={product.image} alt="" ></img>
+            <div className="home-title">{product.title}</div>
+            <div>{product.price}</div>
+            <div>{product.rating?.rate} / {product.rating?.count}</div>
+            <button onClick={() => addToCart(product)}>Add to cart</button>
+          </div>
+      
       )}
+      </div>
+      <Toaster />
     </div>
   )
 }

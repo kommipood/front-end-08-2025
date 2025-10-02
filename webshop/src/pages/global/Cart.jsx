@@ -2,6 +2,7 @@ import { useState } from "react"
 // import cartFromFile from "../../data/cart.json"
 import { useTranslation } from "react-i18next";
 import ParcelMachines from "../../components/ParcelMachines";
+import { TiDelete } from "react-icons/ti";
 
 function Cart() {
     const [products, setProducts] = useState(JSON.parse(localStorage.getItem("cart")));
@@ -38,14 +39,15 @@ function Cart() {
         {products.length === 0 && <div>{t("cart.empty-text")}</div>}
 
         {products.map((product, index) =>
-            <div key={index}>
-                <div>{product.title}</div>
-                <div>{product.price} €</div>
-                <button onClick={() => remove(index)}>x</button>
+            <div className="product" key={index}>
+                <img className="image" src={product.image} alt=""/>
+                <div className="title">{product.title}</div>
+                <div className="price">{product.price} €</div>
+                <TiDelete className="remove" onClick={() => remove(index)}/>
             </div>
         )}
-
-        <ParcelMachines/>
+        <br></br>
+        <ParcelMachines/><br></br>
         <div>{t("cart.total")}: {addTogether().toFixed(2)}</div>
     </div>
   )
